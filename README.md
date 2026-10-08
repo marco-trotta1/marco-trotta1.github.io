@@ -31,6 +31,7 @@ Run `python3 scripts/create-marquee-font.py` to rebuild the font. It supports th
 ## Signature and sections
 
 The supplied wave drawing appears beside the name as a decorative signature mark.
+The signature has a small rightward offset to balance the wave beside the name.
 The original image is stored in `public/signature-wave.png`. CSS sets its ink color to match the selected theme.
 The section headings are centered within a content area that is at most 760 pixels wide.
 

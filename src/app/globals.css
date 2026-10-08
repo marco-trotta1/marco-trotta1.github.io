@@ -159,6 +159,7 @@ button:focus-visible {
   letter-spacing: 0.045em;
   line-height: 1.15;
   white-space: nowrap;
+  transform: translateX(0.35em);
 }
 
 .signature-wave {
