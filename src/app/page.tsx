@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type Theme = "light" | "dark";
 
@@ -83,7 +84,17 @@ export default function Home() {
 
       <div className="marquee-wrap">
         <section className="marquee" aria-labelledby="site-title">
-          <h1 id="site-title" className="marquee-name">Marco Trotta</h1>
+          <h1 id="site-title" className="marquee-name">
+            <span>Marco Trotta</span>
+            <Image
+              className="signature-wave"
+              src="/signature-wave.png"
+              alt=""
+              width={500}
+              height={308}
+              priority
+            />
+          </h1>
           <div className="marquee-contact">
             <span className="mail-label">Mail:</span>
             <a href="mailto:marcotrotta909@gmail.com">
