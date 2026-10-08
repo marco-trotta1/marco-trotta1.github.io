@@ -34,18 +34,6 @@ const socialLinks = [
   },
 ];
 
-function HandwrittenText({ text }: { text: string }) {
-  return (
-    <span className="handwritten-run" aria-hidden="true">
-      {Array.from(text, (character, index) => (
-        <span className="handwritten-letter" key={`${index}-${character}`}>
-          {character === " " ? "\u00a0" : character}
-        </span>
-      ))}
-    </span>
-  );
-}
-
 function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme;
   window.localStorage.setItem("marco-theme", theme);
@@ -95,29 +83,39 @@ export default function Home() {
 
       <div className="marquee-wrap">
         <section className="marquee" aria-labelledby="site-title">
-          <h1 id="site-title" className="marquee-name" aria-label="Marco Trotta">
-            <HandwrittenText text="Marco Trotta" />
-          </h1>
+          <h1 id="site-title" className="marquee-name">Marco Trotta</h1>
           <div className="marquee-contact">
-            <span className="mail-label">
-              <span className="visually-hidden">Mail:</span>
-              <HandwrittenText text="Mail:" />
-            </span>
-            <a href="mailto:marcotrotta909@gmail.com" aria-label="marcotrotta909@gmail.com">
-              <HandwrittenText text="marcotrotta909@gmail.com" />
+            <span className="mail-label">Mail:</span>
+            <a href="mailto:marcotrotta909@gmail.com">
+              marcotrotta909@gmail.com
             </a>
           </div>
         </section>
       </div>
 
       <div className="open-sign" role="img" aria-label="Open">
-        <svg viewBox="0 0 360 154" aria-hidden="true">
-          <path className="neon-blue neon-blue-top" d="M38 78C18 56 31 31 65 22C99 12 144 17 176 31" />
-          <path className="neon-blue neon-blue-bottom" d="M177 122C221 140 283 133 316 110C342 92 337 72 315 60" />
-          <text className="neon-open" x="180" y="99" textAnchor="middle">OPEN</text>
+        <svg viewBox="0 0 320 150" aria-hidden="true">
+          <defs>
+            <ellipse id="open-oval" cx="160" cy="75" rx="137" ry="57" transform="rotate(-5 160 75)" />
+            <g id="open-word" transform="translate(55 43) skewX(-10)">
+              <path d="M25 0C9 0 2 13 2 32S9 64 25 64S48 51 48 32S41 0 25 0ZM25 11C33 11 36 20 36 32S33 53 25 53S14 44 14 32S17 11 25 11Z" />
+              <path d="M60 63V1H83C99 1 106 9 106 22S98 43 83 43H72V63ZM72 12V32H82C90 32 94 29 94 22S90 12 82 12Z" />
+              <path className="neon-letter-e" d="M118 1H156V12H130V26H153V37H130V52H157V63H118Z" />
+              <path d="M169 63V1H181L205 42V1H216V63H204L180 22V63Z" />
+            </g>
+          </defs>
+          <g className="neon-blue">
+            <use href="#open-oval" className="neon-halo" />
+            <use href="#open-oval" className="neon-tube" />
+            <use href="#open-oval" className="neon-core" />
+          </g>
+          <g className="neon-red">
+            <use href="#open-word" className="neon-halo" />
+            <use href="#open-word" className="neon-tube" />
+            <use href="#open-word" className="neon-core" />
+          </g>
         </svg>
       </div>
-
       <div className="sections">
         <section className="writing-section" id="about">
           <h2>About me / interests</h2>

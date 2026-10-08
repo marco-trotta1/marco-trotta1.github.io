@@ -20,8 +20,16 @@ The workflow builds the static site and deploys it to GitHub Pages. It sets the 
 
 ## Marquee font
 
-The custom font lives in `public/fonts/marco-marquee.ttf`. It follows the visible marker strokes in the reference photo.
+The custom font lives in `public/fonts/marco-marker.woff`. It appears only in the name and contact line.
+It uses licensed handwriting outlines, with spacing and proportions chosen from the reference photo.
+The source, attribution, and modification details are in `scripts/font-source/README.md`.
 
 Install the font builder with `python3 -m pip install -r requirements-font.txt`.
 
 Run `python3 scripts/create-marquee-font.py` to rebuild the font. It supports the characters used in the name and email.
+
+## OPEN sign
+
+The sign uses SVG tube outlines and a soft glow. The blue oval surrounds the letters.
+The animation adds slow light variation and occasional brief dips. It keeps the sign lit.
+The sign stays steady when the visitor requests reduced motion.
