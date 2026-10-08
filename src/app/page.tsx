@@ -34,6 +34,18 @@ const socialLinks = [
   },
 ];
 
+function HandwrittenText({ text }: { text: string }) {
+  return (
+    <span className="handwritten-run" aria-hidden="true">
+      {Array.from(text, (character, index) => (
+        <span className="handwritten-letter" key={`${index}-${character}`}>
+          {character === " " ? "\u00a0" : character}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme;
   window.localStorage.setItem("marco-theme", theme);
@@ -83,34 +95,36 @@ export default function Home() {
 
       <div className="marquee-wrap">
         <section className="marquee" aria-labelledby="site-title">
-          <h1 id="site-title" className="marquee-name">Marco Trotta</h1>
+          <h1 id="site-title" className="marquee-name" aria-label="Marco Trotta">
+            <HandwrittenText text="Marco Trotta" />
+          </h1>
           <div className="marquee-contact">
-            <span>Mail:</span>
-            <a href="mailto:marcotrotta909@gmail.com">marcotrotta909@gmail.com</a>
+            <span className="mail-label">
+              <span className="visually-hidden">Mail:</span>
+              <HandwrittenText text="Mail:" />
+            </span>
+            <a href="mailto:marcotrotta909@gmail.com" aria-label="marcotrotta909@gmail.com">
+              <HandwrittenText text="marcotrotta909@gmail.com" />
+            </a>
           </div>
-          <span className="marquee-screw screw-top-left" aria-hidden="true" />
-          <span className="marquee-screw screw-top-right" aria-hidden="true" />
-          <span className="marquee-screw screw-bottom-left" aria-hidden="true" />
-          <span className="marquee-screw screw-bottom-right" aria-hidden="true" />
         </section>
       </div>
 
       <div className="open-sign" role="img" aria-label="Open">
         <svg viewBox="0 0 360 154" aria-hidden="true">
-          <ellipse className="neon-blue" cx="180" cy="77" rx="150" ry="55" />
+          <path className="neon-blue neon-blue-top" d="M38 78C18 56 31 31 65 22C99 12 144 17 176 31" />
+          <path className="neon-blue neon-blue-bottom" d="M177 122C221 140 283 133 316 110C342 92 337 72 315 60" />
           <text className="neon-open" x="180" y="99" textAnchor="middle">OPEN</text>
         </svg>
       </div>
 
       <div className="sections">
         <section className="writing-section" id="about">
-          <p className="section-index">01</p>
-          <h2>About me / Interests</h2>
+          <h2>About me / interests</h2>
           <div className="writing-space" aria-hidden="true" />
         </section>
 
         <section className="writing-section" id="built">
-          <p className="section-index">02</p>
           <h2>What I have built</h2>
           <div className="writing-space" aria-hidden="true" />
         </section>
