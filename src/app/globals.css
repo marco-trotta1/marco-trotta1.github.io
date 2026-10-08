@@ -1,11 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@font-face {
+  font-family: "Marco Marquee";
+  src: url("/fonts/marco-marquee.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+}
 
 :root {
   color-scheme: light;
   --background: #fff;
   --foreground: #111;
   --muted: #777;
-  --line: currentColor;
 }
 
 :root[data-theme="dark"] {
@@ -39,11 +44,6 @@ a {
   color: inherit;
 }
 
-a {
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-}
-
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid currentColor;
@@ -54,7 +54,7 @@ button:focus-visible {
   width: min(100% - 48px, 1080px);
   min-height: 100vh;
   margin: 0 auto;
-  padding: 28px 0 22px;
+  padding: 20px 0 22px;
   display: flex;
   flex-direction: column;
 }
@@ -129,52 +129,49 @@ button:focus-visible {
 }
 
 .marquee-wrap {
-  margin-top: clamp(52px, 9vw, 96px);
+  margin-top: clamp(16px, 3vw, 30px);
 }
 
 .marquee {
-  position: relative;
-  min-height: 220px;
-  border: 1px solid currentColor;
-  outline: 1px solid currentColor;
-  outline-offset: 6px;
-  padding: clamp(28px, 5vw, 54px) 24px clamp(24px, 4vw, 42px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.marquee::before {
-  content: "";
-  position: absolute;
-  inset: 7px;
-  border: 1px solid color-mix(in srgb, currentColor 26%, transparent);
-  pointer-events: none;
+.marquee-name,
+.marquee-contact {
+  font-family: "Marco Marquee", "Courier New", monospace;
+  font-weight: 400;
+  font-kerning: none;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
 }
 
 .marquee-name {
   margin: 0;
-  font-family: "Amatic SC", "Chalkboard", "Marker Felt", "Comic Sans MS", cursive;
-  font-size: clamp(54px, 10vw, 94px);
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  line-height: 0.9;
-  text-transform: uppercase;
-  transform: translateX(0.1em);
+  font-size: clamp(45px, 14vw, 108px);
+  letter-spacing: 0.015em;
+  line-height: 1.12;
 }
 
 .marquee-contact {
-  margin-top: clamp(24px, 4vw, 38px);
+  width: 100%;
+  margin-top: clamp(8px, 1.7vw, 18px);
   display: flex;
   justify-content: center;
   align-items: baseline;
-  gap: 18px;
-  font-family: "Amatic SC", "Chalkboard", "Marker Felt", "Comic Sans MS", cursive;
-  font-size: clamp(24px, 4.2vw, 36px);
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  flex-wrap: wrap;
+  column-gap: clamp(12px, 2vw, 24px);
+  row-gap: 2px;
+  font-size: clamp(21px, 3.5vw, 29px);
+  letter-spacing: 0.005em;
+  line-height: 1.35;
+}
+
+.mail-label,
+.marquee-contact a {
+  white-space: nowrap;
 }
 
 .marquee-contact a {
@@ -183,44 +180,57 @@ button:focus-visible {
 
 .marquee-contact a:hover {
   text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
-.marquee-screw {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  opacity: 0.55;
+.handwritten-run {
+  display: inline-block;
+  white-space: pre;
 }
 
-.screw-top-left { top: 12px; left: 12px; }
-.screw-top-right { top: 12px; right: 12px; }
-.screw-bottom-left { bottom: 12px; left: 12px; }
-.screw-bottom-right { bottom: 12px; right: 12px; }
+.handwritten-letter {
+  display: inline-block;
+  transform-origin: center bottom;
+}
+
+.handwritten-letter:nth-child(7n + 1) {
+  transform: translateY(1px) rotate(-1.4deg);
+}
+
+.handwritten-letter:nth-child(7n + 2) {
+  transform: translateY(-1px) rotate(0.9deg);
+}
+
+.handwritten-letter:nth-child(7n + 3) {
+  transform: translateY(2px) rotate(-0.7deg) scaleX(0.97);
+}
+
+.handwritten-letter:nth-child(7n + 5) {
+  transform: translateY(-2px) rotate(1.2deg);
+}
+
+.handwritten-letter:nth-child(7n) {
+  transform: translateY(1px) rotate(-0.5deg) scaleX(1.03);
+}
 
 .open-sign {
-  width: min(360px, 78vw);
-  margin: clamp(44px, 7vw, 68px) auto clamp(42px, 6vw, 60px);
+  width: min(245px, 58vw);
+  margin: clamp(26px, 4vw, 42px) auto clamp(36px, 5vw, 56px);
 }
 
 .open-sign svg {
   display: block;
   width: 100%;
   overflow: visible;
-  animation: neon-flicker 6.8s linear infinite;
 }
 
 .neon-blue {
   fill: none;
   stroke: #08baff;
   stroke-width: 5;
-  filter: drop-shadow(0 0 3px #08baff) drop-shadow(0 0 8px #087cff);
-  stroke-dasharray: 480;
-  stroke-dashoffset: 108;
   stroke-linecap: round;
-  transform: rotate(-8deg);
-  transform-origin: center;
+  filter: drop-shadow(0 0 3px #08baff) drop-shadow(0 0 8px #087cff);
+  animation: blue-buzz 4.6s steps(1, end) infinite;
 }
 
 .neon-open {
@@ -234,77 +244,82 @@ button:focus-visible {
   font-weight: 700;
   letter-spacing: -2px;
   filter: drop-shadow(0 0 2px #ff1765) drop-shadow(0 0 8px #ff1765);
+  animation: red-buzz 5.2s steps(1, end) infinite;
 }
 
 .sections {
-  flex: 1;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(28px, 8vw, 96px);
+  gap: clamp(34px, 8vw, 96px);
+  margin-top: 8px;
 }
 
 .writing-section {
-  min-height: 190px;
-}
-
-.section-index {
-  margin: 0 0 12px;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  min-height: 116px;
 }
 
 .writing-section h2 {
   margin: 0;
-  font-family: "Amatic SC", "Chalkboard", "Marker Felt", "Comic Sans MS", cursive;
-  font-size: clamp(30px, 4.3vw, 42px);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(21px, 2.6vw, 27px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-transform: none;
 }
 
 .writing-space {
-  height: 108px;
-  margin-top: 16px;
-  border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  height: 84px;
 }
 
-@keyframes neon-flicker {
-  0%, 5%, 7%, 8%, 50%, 52%, 100% { opacity: 1; }
-  6%, 51% { opacity: 0.72; }
-  87% { opacity: 0.94; }
-  88% { opacity: 0.78; }
-  89% { opacity: 1; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes blue-buzz {
+  0%, 7%, 8%, 14%, 15%, 21%, 22%, 31%, 32%, 39%, 40%, 47%, 48%, 57%, 58%, 66%, 67%, 75%, 76%, 85%, 86%, 92%, 93%, 100% { opacity: 1; }
+  7.5%, 14.5%, 31.5%, 39.5%, 57.5%, 66.5%, 85.5%, 92.5% { opacity: 0.3; }
+  21.5%, 47.5%, 75.5% { opacity: 0.62; }
+}
+
+@keyframes red-buzz {
+  0%, 5%, 6%, 13%, 14%, 20%, 21%, 29%, 30%, 38%, 39%, 46%, 47%, 55%, 56%, 64%, 65%, 73%, 74%, 83%, 84%, 91%, 92%, 100% { opacity: 1; }
+  5.5%, 13.5%, 29.5%, 38.5%, 55.5%, 64.5%, 83.5%, 91.5% { opacity: 0.34; }
+  20.5%, 46.5%, 73.5% { opacity: 0.66; }
 }
 
 @media (max-width: 620px) {
   .site-shell {
     width: min(100% - 34px, 1080px);
-    padding-top: 18px;
+    padding-top: 16px;
   }
 
-  .marquee {
-    min-height: 185px;
-    padding-inline: 16px;
+  .social-links {
+    gap: 13px;
   }
 
-  .marquee-contact {
-    flex-wrap: wrap;
-    gap: 0 10px;
-    line-height: 1.15;
+  .marquee-wrap {
+    margin-top: 18px;
   }
 
   .sections {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 20px;
   }
 
   .writing-section {
-    min-height: 156px;
+    min-height: 108px;
   }
 
   .writing-space {
-    height: 66px;
+    height: 64px;
   }
 }
 
