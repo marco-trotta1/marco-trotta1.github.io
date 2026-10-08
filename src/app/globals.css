@@ -210,15 +210,15 @@ button:focus-visible {
 .open-sign {
   width: 148px;
   margin: 26px auto clamp(64px, 8vw, 92px);
-  --neon-blue: #7196b6;
-  --neon-red: #bd626c;
+  --neon-blue: #286fff;
+  --neon-red: #f22968;
   --neon-core: #fff;
 }
 
 :root[data-theme="dark"] .open-sign {
-  --neon-blue: #78a7dc;
-  --neon-red: #ee7c90;
-  --neon-core: #ffe8ee;
+  --neon-blue: #4786ff;
+  --neon-red: #ff3f7c;
+  --neon-core: #fff5fa;
 }
 
 .open-sign svg {
@@ -242,28 +242,25 @@ button:focus-visible {
 
 .neon-halo {
   stroke: currentColor;
-  stroke-width: 6;
-  opacity: 0.2;
-  filter: blur(4px);
+  stroke-width: 12;
+  opacity: 0.65;
+  filter: blur(9px);
 }
 
 .neon-tube {
   stroke: currentColor;
-  stroke-width: 3.4;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 3px currentColor) drop-shadow(0 0 6px currentColor);
 }
 
 .neon-core {
   stroke: var(--neon-core);
-  stroke-width: 0.9;
-  opacity: 0.72;
+  stroke-width: 1.5;
+  opacity: 1;
 }
 
 :root[data-theme="dark"] .neon-halo {
-  opacity: 0.42;
-}
-
-:root[data-theme="dark"] .neon-core {
-  opacity: 0.95;
+  opacity: 0.85;
 }
 
 .neon-letter-e {

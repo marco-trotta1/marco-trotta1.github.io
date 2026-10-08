@@ -37,6 +37,6 @@ The section headings are centered within a content area that is at most 760 pixe
 
 ## OPEN sign
 
-The sign uses SVG tube outlines and a soft glow. The blue oval surrounds the letters.
+The sign uses bright tube cores, saturated color, and layered fluorescent halos. The blue oval surrounds the letters.
 The animation adds slow light variation and occasional brief dips. It keeps the sign lit.
 The sign stays steady when the visitor requests reduced motion.
