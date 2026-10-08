@@ -28,6 +28,12 @@ Install the font builder with `python3 -m pip install -r requirements-font.txt`.
 
 Run `python3 scripts/create-marquee-font.py` to rebuild the font. It supports the characters used in the name and email.
 
+## Signature and sections
+
+The supplied wave drawing appears beside the name as a decorative signature mark.
+The original image is stored in `public/signature-wave.png`. CSS sets its ink color to match the selected theme.
+The section headings are centered within a content area that is at most 760 pixels wide.
+
 ## OPEN sign
 
 The sign uses SVG tube outlines and a soft glow. The blue oval surrounds the letters.
