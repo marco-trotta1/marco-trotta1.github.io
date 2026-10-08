@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+
+:root {
+  color-scheme: light;
+  --background: #fff;
+  --foreground: #111;
+  --muted: #777;
+  --line: currentColor;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #000;
+  --foreground: #fff;
+  --muted: #a3a3a3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Courier New", Courier, monospace;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+button,
+a {
+  color: inherit;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.site-shell {
+  width: min(100% - 48px, 1080px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px 0 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  padding: 4px 0;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.toggle-track {
+  width: 34px;
+  height: 18px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.toggle-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+  transition: transform 180ms ease;
+}
+
+:root[data-theme="dark"] .toggle-thumb {
+  transform: translateX(16px);
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.social-links a {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 28px;
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.social-links a:hover {
+  opacity: 0.62;
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.marquee-wrap {
+  margin-top: clamp(52px, 9vw, 96px);
+}
+
+.marquee {
+  position: relative;
+  min-height: 220px;
+  border: 1px solid currentColor;
+  outline: 1px solid currentColor;
+  outline-offset: 6px;
+  padding: clamp(28px, 5vw, 54px) 24px clamp(24px, 4vw, 42px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.marquee::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid color-mix(in srgb, currentColor 26%, transparent);
+  pointer-events: none;
+}
+
+.marquee-name {
+  margin: 0;
+  font-family: "Amatic SC", "Chalkboard", "Marker Felt", "Comic Sans MS", cursive;
+  font-size: clamp(54px, 10vw, 94px);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  transform: translateX(0.1em);
+}
+
+.marquee-contact {
+  margin-top: clamp(24px, 4vw, 38px);
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 18px;
+  font-family: "Amatic SC", "Chalkboard", "Marker Felt", "Comic Sans MS", cursive;
+  font-size: clamp(24px, 4.2vw, 36px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.marquee-contact a {
+  text-decoration: none;
+}
+
+.marquee-contact a:hover {
+  text-decoration: underline;
+}
+
+.marquee-screw {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.55;
+}
+
+.screw-top-left { top: 12px; left: 12px; }
+.screw-top-right { top: 12px; right: 12px; }
+.screw-bottom-left { bottom: 12px; left: 12px; }
+.screw-bottom-right { bottom: 12px; right: 12px; }
+
+.open-sign {
+  width: min(360px, 78vw);
+  margin: clamp(44px, 7vw, 68px) auto clamp(42px, 6vw, 60px);
+}
+
+.open-sign svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  animation: neon-flicker 6.8s linear infinite;
+}
+
+.neon-blue {
+  fill: none;
+  stroke: #08baff;
+  stroke-width: 5;
+  filter: drop-shadow(0 0 3px #08baff) drop-shadow(0 0 8px #087cff);
+  stroke-dasharray: 480;
+  stroke-dashoffset: 108;
+  stroke-linecap: round;
+  transform: rotate(-8deg);
+  transform-origin: center;
+}
+
+.neon-open {
+  fill: #fff;
+  stroke: #ff1765;
+  stroke-width: 2.5px;
+  paint-order: stroke fill;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 73px;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -2px;
+  filter: drop-shadow(0 0 2px #ff1765) drop-shadow(0 0 8px #ff1765);
+}
+
+.sections {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 8vw, 96px);
+}
+
+.writing-section {
+  min-height: 190px;
+}
+
+.section-index {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.writing-section h2 {
+  margin: 0;
+  font-family: "Amatic SC", "Chalkboard", "Marker Felt", "Comic Sans MS", cursive;
+  font-size: clamp(30px, 4.3vw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.writing-space {
+  height: 108px;
+  margin-top: 16px;
+  border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+
+@keyframes neon-flicker {
+  0%, 5%, 7%, 8%, 50%, 52%, 100% { opacity: 1; }
+  6%, 51% { opacity: 0.72; }
+  87% { opacity: 0.94; }
+  88% { opacity: 0.78; }
+  89% { opacity: 1; }
+}
+
+@media (max-width: 620px) {
+  .site-shell {
+    width: min(100% - 34px, 1080px);
+    padding-top: 18px;
+  }
+
+  .marquee {
+    min-height: 185px;
+    padding-inline: 16px;
+  }
+
+  .marquee-contact {
+    flex-wrap: wrap;
+    gap: 0 10px;
+    line-height: 1.15;
+  }
+
+  .sections {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .writing-section {
+    min-height: 156px;
+  }
+
+  .writing-space {
+    height: 66px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
