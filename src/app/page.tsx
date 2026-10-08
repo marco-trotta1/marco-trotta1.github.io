@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 type Theme = "light" | "dark";
 
@@ -86,14 +85,34 @@ export default function Home() {
         <section className="marquee" aria-labelledby="site-title">
           <h1 id="site-title" className="marquee-name">
             <span>Marco Trotta</span>
-            <Image
+            <svg
               className="signature-wave"
-              src="/signature-wave.png"
-              alt=""
+              viewBox="0 0 500 308"
               width={500}
               height={308}
-              priority
-            />
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <mask
+                  id="signature-wave-mask"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="500"
+                  height="308"
+                  style={{ maskType: "luminance" }}
+                >
+                  <image
+                    className="signature-wave-source"
+                    href="/signature-wave.png"
+                    width="500"
+                    height="308"
+                  />
+                </mask>
+              </defs>
+              <rect width="500" height="308" fill="currentColor" mask="url(#signature-wave-mask)" />
+            </svg>
           </h1>
           <div className="marquee-contact">
             <span className="mail-label">Mail:</span>

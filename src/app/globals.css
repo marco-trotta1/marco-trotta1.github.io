@@ -169,13 +169,10 @@ button:focus-visible {
   height: auto;
   margin-left: -0.1em;
   transform: translateY(0.04em);
-  filter: grayscale(1) contrast(1.5);
-  mix-blend-mode: multiply;
 }
 
-:root[data-theme="dark"] .signature-wave {
+.signature-wave-source {
   filter: grayscale(1) contrast(1.5) invert(1);
-  mix-blend-mode: screen;
 }
 
 .marquee-contact {
