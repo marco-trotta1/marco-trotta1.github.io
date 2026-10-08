@@ -32,8 +32,12 @@ Run `python3 scripts/create-marquee-font.py` to rebuild the font. It supports th
 
 The supplied wave drawing appears beside the name as a decorative signature mark.
 The signature has a small rightward offset to balance the wave beside the name.
-The original image is stored in `public/signature-wave.png`. CSS sets its ink color to match the selected theme.
+The original image is stored in `public/signature-wave.png`. An SVG mask removes its background and paints the drawing with the text color.
+The mask stays fixed during theme changes. The wave follows the text color transition without a separate background or blend mode.
 The section headings are centered within a content area that is at most 760 pixels wide.
+
+Run `npm run build`, then `node --test tests/wave-theme.test.mjs` to check the wave rendering.
+The deployment workflow runs this check before it uploads the site.
 
 ## OPEN sign
 
