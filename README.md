@@ -22,6 +22,7 @@ The workflow builds the static site and deploys it to GitHub Pages. It sets the 
 
 The custom font lives in `public/fonts/marco-marker.woff`. It appears only in the name and contact line.
 It uses licensed handwriting outlines, with spacing and proportions chosen from the reference photo.
+The layout preloads the font and uses a system sans-serif fallback while it loads.
 The source, attribution, and modification details are in `scripts/font-source/README.md`.
 
 The contact line displays `marcotrotta909 [at] gmail [dot] com`. The link opens an email to `marcotrotta909@gmail.com`.
@@ -34,7 +35,8 @@ Run `python3 scripts/create-marquee-font.py` to rebuild the font. It supports th
 
 The supplied wave drawing appears beside the name as a decorative signature mark.
 The signature has a small rightward offset on wide screens. On mobile, the title and wave use smaller sizes and no offset.
-The original image is stored in `public/signature-wave.png`. An SVG mask removes its background and paints the drawing with the text color.
+The original drawing is stored in `public/signature-wave.png`. The transparent alpha mask is stored in `public/signature-wave-alpha.png`.
+The browser uses the alpha mask to paint the wave with the text color. This keeps the page background clear on mobile Safari.
 The mask stays fixed during theme changes. The wave follows the text color transition without a separate background or blend mode.
 The sections use a centered container with a maximum width of 850 pixels and 24 pixels of side padding.
 About me appears above Things I have built. Both headings align with the text on the left.

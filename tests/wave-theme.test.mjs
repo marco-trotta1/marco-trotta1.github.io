@@ -2,25 +2,20 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-test("the wave uses a stable transparent mask and follows the text color", () => {
+test("the wave uses an alpha mask and follows the text color", () => {
   const html = readFileSync(new URL("../out/index.html", import.meta.url), "utf8");
   const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
-  const wave = html.match(/<svg\b[^>]*class="signature-wave"[^>]*>[\s\S]*?<\/svg>/)?.[0];
+  const wave = html.match(/<span\b[^>]*class="signature-wave"[^>]*><\/span>/)?.[0];
 
-  assert.ok(wave, "Render the wave as an SVG mask instead of an opaque image.");
-  assert.match(wave, /<mask\b[^>]*id="signature-wave-mask"[^>]*style="mask-type:luminance"/);
-  assert.match(wave, /<image\b[^>]*href="\/signature-wave.png"/);
+  assert.ok(wave, "Render the wave with a span and a transparent alpha mask.");
+  assert.doesNotMatch(html, /<mask\b/);
+  assert.match(html, /rel="preload"[^>]*href="\/fonts\/marco-marker\.woff\?v=2\.1"[^>]*as="font"/);
 
-  const visibleMarkup = wave.replace(/<defs>[\s\S]*?<\/defs>/, "");
-  assert.doesNotMatch(visibleMarkup, /<(?:image|img)\b/);
-  assert.match(visibleMarkup, /<rect\b[^>]*fill="currentColor"[^>]*mask="url\(#signature-wave-mask\)"/);
-
-  const wrapperStyle = css.match(/\.signature-wave\s*\{([^}]+)\}/)?.[1];
-  assert.ok(wrapperStyle);
-  assert.doesNotMatch(wrapperStyle, /(?:filter|mix-blend-mode)\s*:/);
-  assert.doesNotMatch(css, /data-theme[^}]*\.signature-wave(?:-source)?\s*\{/);
-
-  const sourceStyle = css.match(/\.signature-wave-source\s*\{([^}]+)\}/)?.[1];
-  assert.ok(sourceStyle);
-  assert.match(sourceStyle, /filter:\s*grayscale\(1\) contrast\(1\.5\) invert\(1\)/);
+  const waveStyle = css.match(/\.signature-wave\s*\{([^}]+)\}/)?.[1];
+  assert.ok(waveStyle);
+  assert.match(waveStyle, /background-color:\s*currentColor/);
+  assert.match(waveStyle, /-webkit-mask-image:\s*url\("\/signature-wave-alpha\.png"\)/);
+  assert.match(waveStyle, /mask-image:\s*url\("\/signature-wave-alpha\.png"\)/);
+  assert.match(css, /font-family:\s*"Marco Marker",\s*system-ui,\s*sans-serif/);
+  assert.doesNotMatch(css, /\bcursive\b/);
 });

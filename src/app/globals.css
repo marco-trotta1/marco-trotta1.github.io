@@ -141,7 +141,7 @@ button:focus-visible {
 
 .marquee-name,
 .marquee-contact {
-  font-family: "Marco Marker", "Segoe Print", cursive;
+  font-family: "Marco Marker", system-ui, sans-serif;
   font-weight: 400;
   font-kerning: normal;
   font-synthesis: none;
@@ -166,13 +166,19 @@ button:focus-visible {
   display: block;
   flex: none;
   width: 1.5em;
-  height: auto;
+  aspect-ratio: 500 / 308;
   margin-left: -0.1em;
   transform: translateY(0.04em);
-}
-
-.signature-wave-source {
-  filter: grayscale(1) contrast(1.5) invert(1);
+  background-color: currentColor;
+  -webkit-mask-image: url("/signature-wave-alpha.png");
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: url("/signature-wave-alpha.png");
+  mask-mode: alpha;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
 
 .marquee-contact {
