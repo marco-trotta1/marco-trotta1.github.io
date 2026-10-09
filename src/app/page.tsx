@@ -189,8 +189,8 @@ export default function Home() {
               <p>
                 This is an early stage machine learning tool for AgriBeef. It helps
                 determine optimal prices and market info for buying and selling
-                cattle. Here is a (very rough){" "}
-                <a href="https://highline-omega.vercel.app/">demo.</a>
+                cattle. Here is an early prototype{" "}
+                <a href="https://highline-omega.vercel.app/">demo</a>.
               </p>
             </article>
           </div>
