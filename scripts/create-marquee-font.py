@@ -12,7 +12,7 @@ from fontTools.ttLib import TTFont
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "scripts/font-source/AnnieUseYourTelescope-Regular.ttf"
 OUTPUT = ROOT / "public/fonts/marco-marker.woff"
-TEXT = "Marco Trotta Mail: marcotrotta909[at]gmail[dot]com"
+TEXT = "Marco Trotta Mail: marcotrotta909 [at] gmail [dot] com"
 
 
 def build_font() -> None:
