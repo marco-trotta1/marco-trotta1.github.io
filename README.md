@@ -33,7 +33,7 @@ Run `python3 scripts/create-marquee-font.py` to rebuild the font. It supports th
 ## Signature and sections
 
 The supplied wave drawing appears beside the name as a decorative signature mark.
-The signature has a small rightward offset to balance the wave beside the name.
+The signature has a small rightward offset on wide screens. On mobile, the title and wave use smaller sizes and no offset.
 The original image is stored in `public/signature-wave.png`. An SVG mask removes its background and paints the drawing with the text color.
 The mask stays fixed during theme changes. The wave follows the text color transition without a separate background or blend mode.
 The sections use a centered container with a maximum width of 850 pixels and 24 pixels of side padding.

@@ -345,6 +345,15 @@ button:focus-visible {
     margin-top: 20px;
   }
 
+  .marquee-name {
+    font-size: clamp(38px, 12.6vw, 78px);
+    transform: none;
+  }
+
+  .signature-wave {
+    width: 1.35em;
+  }
+
   .open-sign {
     width: 132px;
   }
