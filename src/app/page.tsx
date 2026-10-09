@@ -117,7 +117,7 @@ export default function Home() {
           <div className="marquee-contact">
             <span className="mail-label">Mail:</span>
             <a href="mailto:marcotrotta909@gmail.com">
-              marcotrotta909[at]gmail[dot]com
+              marcotrotta909 [at] gmail [dot] com
             </a>
           </div>
         </section>
