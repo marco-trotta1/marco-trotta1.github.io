@@ -37,7 +37,8 @@ The signature has a small rightward offset to balance the wave beside the name.
 The original image is stored in `public/signature-wave.png`. An SVG mask removes its background and paints the drawing with the text color.
 The mask stays fixed during theme changes. The wave follows the text color transition without a separate background or blend mode.
 The sections span the page with small side margins. About me appears above Things I have built, and both headings stay centered.
-The about text and project descriptions are in `src/app/page.tsx`. The project names use italics, and the body text uses a system font.
+The about text and project descriptions are in `src/app/page.tsx`. The project names use italics.
+The body uses a system font at 17 pixels, with a line height of 1.8. The section headings use a font at 20 pixels.
 
 Run `npm run build`, then `node --test tests/wave-theme.test.mjs` to check the wave rendering.
 The deployment workflow runs this check before it uploads the site.
