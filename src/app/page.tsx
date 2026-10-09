@@ -148,7 +148,7 @@ export default function Home() {
       </div>
       <div className="sections">
         <section className="writing-section" id="about">
-          <h2>About me / Interests</h2>
+          <h2>About me</h2>
           <div className="writing-content">
             <p>
               I am a current high school senior from Boise, Idaho and the co-founder of{" "}
