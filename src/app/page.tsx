@@ -148,13 +148,52 @@ export default function Home() {
       </div>
       <div className="sections">
         <section className="writing-section" id="about">
-          <h2>About me / interests</h2>
-          <div className="writing-space" aria-hidden="true" />
+          <h2>About me / Interests</h2>
+          <div className="writing-content">
+            <p>
+              I am a current high school senior from Boise, Idaho and the co-founder of{" "}
+              <a href="https://irrigant.xyz/">Irrigant.</a> I enjoy working on forecasting
+              physical systems in space and time, physics-informed ML, and turning
+              predictions into actionable decisions.
+            </p>
+            <p>
+              I am also obsessed with surfing, skiing, and alpinism/rock climbing.
+            </p>
+          </div>
         </section>
 
         <section className="writing-section" id="built">
-          <h2>What I have built</h2>
-          <div className="writing-space" aria-hidden="true" />
+          <h2>Things I have built</h2>
+          <div className="writing-content">
+            <article className="project">
+              <h3><em>Helios:</em></h3>
+              <p>
+                Helios is my company <a href="https://irrigant.xyz/">Irrigant’s</a>{" "}
+                flagship software. It is both an agentic agronomist that works with
+                growers to manage their farm, and a set of research-stage geospatial
+                prediction models for irrigation.
+              </p>
+            </article>
+            <article className="project">
+              <h3><em>Neural Corrections for Evapotranspiration:</em></h3>
+              <p>
+                This was <a href="https://arxiv.org/abs/2609.35314">research</a> I did
+                with both Irrigant and the University of Idaho. We worked to decide
+                when you can trust satellite data for irrigation, and built the model
+                for when you can’t. It is one of those super niche projects that
+                appeals to maybe 150 people, but I definitely enjoyed it.
+              </p>
+            </article>
+            <article className="project">
+              <h3><em>AgriBeef Highline:</em></h3>
+              <p>
+                This is an early stage machine learning tool for AgriBeef. It helps
+                determine optimal prices and market info for buying and selling
+                cattle. Here is a (very rough){" "}
+                <a href="https://highline-omega.vercel.app/">demo.</a>
+              </p>
+            </article>
+          </div>
         </section>
       </div>
 
