@@ -24,6 +24,8 @@ The custom font lives in `public/fonts/marco-marker.woff`. It appears only in th
 It uses licensed handwriting outlines, with spacing and proportions chosen from the reference photo.
 The source, attribution, and modification details are in `scripts/font-source/README.md`.
 
+The contact line displays `marcotrotta909[at]gmail[dot]com`. The link opens an email to `marcotrotta909@gmail.com`.
+
 Install the font builder with `python3 -m pip install -r requirements-font.txt`.
 
 Run `python3 scripts/create-marquee-font.py` to rebuild the font. It supports the characters used in the name and email.
