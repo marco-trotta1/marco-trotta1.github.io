@@ -12,7 +12,7 @@ from fontTools.ttLib import TTFont
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "scripts/font-source/AnnieUseYourTelescope-Regular.ttf"
 OUTPUT = ROOT / "public/fonts/marco-marker.woff"
-TEXT = "Marco Trotta Mail: marcotrotta909@gmail.com"
+TEXT = "Marco Trotta Mail: marcotrotta909[at]gmail[dot]com"
 
 
 def build_font() -> None:
@@ -53,9 +53,9 @@ def build_font() -> None:
     names = {
         1: "Marco Marker",
         2: "Regular",
-        3: "Marco Marker Regular 2.0",
+        3: "Marco Marker Regular 2.1",
         4: "Marco Marker Regular",
-        5: "Version 2.0",
+        5: "Version 2.1",
         6: "MarcoMarker-Regular",
     }
     for record in font["name"].names:
