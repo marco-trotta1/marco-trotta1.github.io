@@ -36,7 +36,9 @@ The supplied wave drawing appears beside the name as a decorative signature mark
 The signature has a small rightward offset to balance the wave beside the name.
 The original image is stored in `public/signature-wave.png`. An SVG mask removes its background and paints the drawing with the text color.
 The mask stays fixed during theme changes. The wave follows the text color transition without a separate background or blend mode.
-The sections span the page with small side margins. About me appears above Things I have built, and both headings stay centered.
+The sections use a centered container with a maximum width of 850 pixels and 24 pixels of side padding.
+About me appears above Things I have built. Both headings align with the text on the left.
+The gap below the OPEN sign and between the sections is 32 pixels. The section gap is 20 pixels on mobile.
 The about text and project descriptions are in `src/app/page.tsx`. The project names use italics.
 The body uses a system font at 17 pixels, with a line height of 1.8. The section headings use a font at 20 pixels.
 
